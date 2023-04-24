@@ -94,4 +94,29 @@ fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displayCelsiusTemperature);
 
+function displayForecast() {
+    let forecastElement = document.getElementById("forecast");
+    let forecastHTML = `<div class="row">`;
+    let days = ["Sun", "Mon", "Tue", "Wed", "Thurs", "Fri",];
+    days.forEach(function (day) {
+        forecastHTML = forecastHTML +
+            `<div class="col-2">
+              <div class="weather-forecast-date">Thu</div>
+              <img
+                src="http://openweathermap.org/img/wn/50d@2x.png"
+                alt=""
+                width="42"
+              />
+              <div class="weather-forecast-temperatures">
+                <span class="weather-forecast-temperature-max"> 18° </span>
+                <span class="weather-forecast-temperature-min"> 12° </span>
+              </div>
+            </div>`;
+    });
+    forecastHTML = forecastHTML + `</div>`;
+    forecastElement.innerHTML = forecastHTML;
+    console.log(forecastHTML);
+}
+
 search("New York");
+displayForecast();
