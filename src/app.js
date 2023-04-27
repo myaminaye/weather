@@ -55,10 +55,12 @@ function getForecast(coordinates) {
   }
 
 function displayTemperature(response) {
+    console.log(response.data)
     let temperatureElement = document.getElementById("temperature");
     let cityElement = document.getElementById("city");
     let descriptionElement = document.getElementById("description");
     let humidityElement = document.getElementById("humidity");
+    let pressureElement = document.getElementById("pressure");
     let windElement = document.getElementById("wind");
     let dateElement = document.getElementById("date");
     let iconElement = document.getElementById("icon");
@@ -69,6 +71,7 @@ function displayTemperature(response) {
     cityElement.innerHTML = response.data.name;
     descriptionElement.innerHTML = response.data.weather[0].description;
     humidityElement.innerHTML = response.data.main.humidity;
+    pressureElement.innerHTML = response.data.main.pressure;
     windElement.innerHTML = Math.round(response.data.wind.speed * 3.6);
     dateElement.innerHTML = formatDate(response.data.dt * 1000);
     iconElement.setAttribute("src", `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
